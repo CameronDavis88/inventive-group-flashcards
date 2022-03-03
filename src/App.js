@@ -4,26 +4,23 @@ import Landing from './components/Landing/Landing';
 import Flashcards from './components/Flashcards/Flashcards';
 import Assessment from './components/Assessment/Assessment';
 import Header from './components/Header/Header';
-// import EightWastes from './components/Flashcards/EightWastes/EightWastes';
-// import Custom from './components/Flashcards/Custom/Custom';
-// import LeanTerminology from './components/Flashcards/LeanTerminology/LeanTerminology';
+import Banner from './components/Banner/Banner';
 // import { leanTermsList, eightWastesList } from './data';
 import './App.css';
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
 
 function App() {
-  const [customList, setCustomList] = useState([])
+  // const [customList, setCustomList] = useState([{ id: 0, term: 'Inventive-group', answer: 'Paradise' }]);
+  // const [customCardId, setCustomCardId] = useState(0);
 
   return (
     <div className="App">
       <Router>
        <Header/>
+       <Banner />
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route path='/flashcards' component={Flashcards} customList={customList} setCustomList={setCustomList} />
-          {/* <Route path='/lean_terminology_cards' component={LeanTerminology} />
-          <Route path='/eight_wastes_cards' component={EightWastes} />
-          <Route path='/custom_cards' component={Custom} setCustomList={setCustomList} /> */}
+          <Route path='/flashcards' component={Flashcards}  />
           <Route path='/assessment' component={Assessment} />
         </Switch>
       </Router>

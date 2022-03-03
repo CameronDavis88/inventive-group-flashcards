@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
 
-const Flashcard = ({ term, answer, setTermSide, termSide, leanView, customView, wastesView, setLeanView, setWastesView, setCustomView }) => {
+const Flashcard = ({ term, answer, setTermSide, termSide }) => {
  
 
     
 
     return (
         <div className='flashcard' >
-            {termSide
+            {termSide === true
                 ?
                 <section className='term-view' >
                     <h3>Term:</h3>
