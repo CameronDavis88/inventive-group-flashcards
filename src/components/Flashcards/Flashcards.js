@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { leanTermsList, eightWastesList } from '../../data';
+import { connect } from 'react-redux';
+import { addToCustomList } from '../../redux/reducer';
 import Flashcard from './Flashcard';
 
-const Flashcards = () => {
+const Flashcards = ({ customList, addToCustomList }) => {
   const [termSide, setTermSide] = useState(true);
   const [leanView, setLeanView] = useState(false);
   const [wastesView, setWastesView] = useState(false);
   const [customView, setCustomView] = useState(false);
   const [termInput, setTermInput] = useState('');
   const [answerInput, setAnswerInput] = useState('');
-  const [customList, setCustomList] = useState([{ id: 0, term: 'Inventive-group', answer: 'Paradise' },]);
   const [customCardId, setCustomCardId] = useState(0);
 
   const createFlashcard = () => {
-    setCustomList.push({ id: customCardId + 1, term: termInput, answer: answerInput });
-    alert('Your flashcard has been added');
+    const newCard = { id: customCardId + 1, term: termInput, answer: answerInput }
+    addToCustomList(newCard);
+    // alert('Your flashcard has been added');
     setTermInput('');
     setAnswerInput('');
     setCustomCardId(customCardId + 1)
@@ -46,16 +48,15 @@ const Flashcards = () => {
 
   const mappedWastesCards = eightWastesList.map((flashcard) => {
     return (
-      <Flashcard key={flashcard.id} term={flashcard.term} answer={flashcard.answer} setTermSide={setTermSide} termSide={termSide}  />
+      <Flashcard key={flashcard.id} term={flashcard.term} answer={flashcard.answer} setTermSide={setTermSide} termSide={termSide} />
     )
   });
 
   const mappedCustomCards = customList.map((flashcard) => {
     return (
-      <Flashcard key={flashcard.id} term={flashcard.term} answer={flashcard.answer} setTermSide={setTermSide} termSide={termSide}  />
+      <Flashcard key={flashcard.id} term={flashcard.term} answer={flashcard.answer} setTermSide={setTermSide} termSide={termSide} />
     )
   });
-
 
   return (
     <div>
@@ -68,21 +69,22 @@ const Flashcards = () => {
 
       {leanView ? mappedLeanCards : <></>}
       {wastesView ? mappedWastesCards : <></>}
-      {customView 
-      ?
-            <section className='making-custom-card'>
-              <h2>Make your own flashcard</h2>
-              <input onChange={(e) => setTermInput(e.target.value)} placeholder='Term' value={termInput} />
-              <input onChange={(e) => setAnswerInput(e.target.value)} placeholder='Answer' value={answerInput} />
-              <button onClick={createFlashcard}>Create Flashcard</button>
-              <br />
-              {mappedCustomCards}
-            </section>
-           :
-           <></> 
-        }
+      {customView
+        ?
+        <section className='making-custom-card'>
+          <h2>Make your own flashcard</h2>
+          <input onChange={(e) => setTermInput(e.target.value)} placeholder='Term' value={termInput} />
+          <input onChange={(e) => setAnswerInput(e.target.value)} placeholder='Answer' value={answerInput} />
+          <button onClick={createFlashcard}>Create Flashcard</button>
+          <br />
+          {mappedCustomCards}
+        </section>
+        :
+        <></>
+      }
     </div>
   );
 };
 
-export default Flashcards;
+const mapStateToProps = (reduxState) => reduxState;
+export default connect(mapStateToProps, { addToCustomList })(Flashcards);
