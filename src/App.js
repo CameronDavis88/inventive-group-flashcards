@@ -7,12 +7,12 @@ import Header from './components/Header/Header';
 // import EightWastes from './components/Flashcards/EightWastes/EightWastes';
 // import Custom from './components/Flashcards/Custom/Custom';
 // import LeanTerminology from './components/Flashcards/LeanTerminology/LeanTerminology';
-import { leanTermsListData, eightWastesListData } from './data';
+// import { leanTermsList, eightWastesList } from './data';
 import './App.css';
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
 
 function App() {
-  const [customList, setCustomList] = useState([{id: 0, term: '', answer: ''},])
+  const [customList, setCustomList] = useState([])
 
   return (
     <div className="App">

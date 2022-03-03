@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 
-const Flashcard = ({ id, term, answer, setTermSide, termSide }) => {
-    const [leanView, setLeanView] = useState(false);
-    const [wastesView, setWastesView] = useState(false);
-    const [customView, setCustomView] = useState(false);
+const Flashcard = ({ term, answer, setTermSide, termSide, leanView, customView, wastesView, setLeanView, setWastesView, setCustomView }) => {
+ 
 
     
 
@@ -15,7 +13,7 @@ const Flashcard = ({ id, term, answer, setTermSide, termSide }) => {
                 <section className='term-view' >
                     <h3>Term:</h3>
                     <h3>{term}</h3>
-                    <button onClick={setTermSide(false)} >See Definition</button>
+                    <button onClick={() => setTermSide(false)} >See Definition</button>
                 </section>
                 :
                 <section className='answer-view' >

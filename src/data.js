@@ -1,5 +1,5 @@
 module.exports = {
-     leanTermsListData : [
+     leanTermsList : [
         {id: 1, term: '6s' , answer: 'study, sort, set in order, standardize, and sustain'}, 
         {id: 2, term: 'A3 report', answer: 'A problem solving tool named after the international paper size (A3) approximately 11x17. Developed to fit on this size of paper as a guide to keep all steps as concise as possible. You’re not working on the root cause of the problem if you can’t fit on this size sheet.'},
          {id: 3, term: 'Andon', answer: 'A visual light used to show the current status of a machine or process.'}, 
@@ -50,7 +50,7 @@ module.exports = {
           {id: 48, term: 'WIP', answer: 'Work in process - adding value to the product that the customer is not willing to pay for yet.'},
     ],
     
-     eightWastesListData : [
+     eightWastesList : [
         {id: 1, term: '1. Overproduction', answer: 'To produce sooner, faster, or in greater quantities than customer demands.'},
         {id: 2, term: '2. Inventory', answer: 'Raw material, work in process, or finished goods which is not having value added to it.'},
         {id: 3, term: '3. Waiting', answer: 'People or parts that wait for a work cycle to be completed.'},
