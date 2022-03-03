@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Banner from '../Banner/Banner';
+import { leanTermsListData, eightWastesListData } from './data';
+import Flashcard from './Flashcard';
 
-const flashcardPage = () => {
+
+const Flashcards = ({ customList, setCustomList}) => {
+  const [termList, setTermList] = useState([]);
+  const [termSide, setTermSide] = useState(true);
+
+  
+
+
   return (
-    <div>flashcardPage</div>
+
+    <div>
+      Flashcards
+      <Banner />
+      {termList.map((flashcard) => {
+        <Flashcard key={flashcard.id} term={flashcard.term} answer={flashcard.answer} setTermSide={setTermSide} termSide={termSide} />
+      })}
+    </div>
   );
 };
 
-export default flashcardPage;
+export default Flashcards;

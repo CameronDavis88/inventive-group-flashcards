@@ -1,8 +1,12 @@
 import React from 'react';
+import Banner from '../../Banner/Banner';
 
 const EightWastes = () => {
   return (
-    <div>EightWastes</div>
+    <div>
+        EightWastes
+        <Banner />
+        </div>
   );
 };
 

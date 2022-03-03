@@ -1,8 +1,12 @@
 import React from 'react';
+import Banner from '../../Banner/Banner';
 
 const Custom = () => {
   return (
-    <div>Custom</div>
+    <div>
+        Custom
+        <Banner />
+    </div>
   );
 };
 
